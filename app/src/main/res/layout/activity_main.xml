@@ -8,6 +8,11 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selector" />
 
     <LinearLayout
         android:id="@+id/lnrMain"
@@ -37,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_5sdp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageView
                 android:layout_width="@dimen/_2sdp"
@@ -49,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_5sdp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -80,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_5sdp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageView
                 android:layout_width="@dimen/_2sdp"
@@ -92,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_5sdp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -111,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_1sdp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageView
                 android:layout_width="@dimen/_2sdp"
@@ -145,14 +150,14 @@
         android:id="@+id/txtReset"
         android:layout_width="@dimen/_100sdp"
         android:layout_height="wrap_content"
-        android:text="RESET"
-        android:gravity="center"
-        android:visibility="gone"
-        android:padding="@dimen/_5sdp"
-        android:textColor="#00749A"
         android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/winn_btn"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:text="RESET"
+        android:textColor="#00749A"
         android:textSize="@dimen/_14sdp"
         android:textStyle="bold"
-        android:background="@drawable/winn_btn"/>
+        android:visibility="gone" />
 
 </LinearLayout>

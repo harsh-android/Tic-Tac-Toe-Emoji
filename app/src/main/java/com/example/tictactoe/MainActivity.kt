@@ -17,8 +17,11 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
-    var round = R.drawable.emo1
-    var cross = R.drawable.emo2
+    companion object {
+        var round = R.drawable.emo1
+        var cross = R.drawable.emo2
+    }
+
     private val TAG = "MainActivity"
     var check = 0
     var c1 = 0
@@ -36,8 +39,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var anim = AnimationUtils.loadAnimation(this,R.anim.zoom)
+        var anim = AnimationUtils.loadAnimation(this, R.anim.zoom)
         binding.lnrMain.startAnimation(anim)
+
+        binding.btnSelector.setOnClickListener {
+
+            ImageSelector.imageSelectorDialog(this)
+
+        }
 
         binding.txtReset.setOnClickListener {
             resetGame()
@@ -93,7 +102,7 @@ class MainActivity : AppCompatActivity() {
     private fun addImage(c: Int, i1: ImageView): Int {
         var cc = c
         if (cc == 0) {
-            var zoomAnim = AnimationUtils.loadAnimation(this,R.anim.zoom2)
+            var zoomAnim = AnimationUtils.loadAnimation(this, R.anim.zoom2)
             if (check % 2 == 0) {
                 i1.setImageResource(round)
                 i1.startAnimation(zoomAnim)
@@ -146,7 +155,7 @@ class MainActivity : AppCompatActivity() {
         var cardWin = dialog.findViewById<CardView>(R.id.cardWin)
         var imgIcon = dialog.findViewById<ImageView>(R.id.imgIcon)
         var txtReset = dialog.findViewById<TextView>(R.id.txtReset)
-        var zoomAnim = AnimationUtils.loadAnimation(this,R.anim.move_up)
+        var zoomAnim = AnimationUtils.loadAnimation(this, R.anim.move_up)
 
         if (c == 1) {
             imgIcon.setImageResource(round)
