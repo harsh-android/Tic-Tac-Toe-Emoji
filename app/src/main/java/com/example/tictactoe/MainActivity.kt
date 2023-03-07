@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.bumptech.glide.Glide
 import com.example.tictactoe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         var round = R.drawable.emo1
         var cross = R.drawable.emo2
     }
+
+    var gameStart = false
 
     private val TAG = "MainActivity"
     var check = 0
@@ -41,6 +44,9 @@ class MainActivity : AppCompatActivity() {
 
         var anim = AnimationUtils.loadAnimation(this, R.anim.zoom)
         binding.lnrMain.startAnimation(anim)
+        ImageSelector.imageSelectorDialog(this)
+
+        Glide.with(this).load(R.drawable.background).into(binding.imgBack)
 
         binding.btnSelector.setOnClickListener {
 
@@ -100,16 +106,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addImage(c: Int, i1: ImageView): Int {
+        gameStart = true
+        binding.btnSelector.visibility = View.GONE
         var cc = c
         if (cc == 0) {
             var zoomAnim = AnimationUtils.loadAnimation(this, R.anim.zoom2)
             if (check % 2 == 0) {
-                i1.setImageResource(round)
+                Glide.with(this).load(round).into(i1)
                 i1.startAnimation(zoomAnim)
                 cc = 1
-
             } else {
-                i1.setImageResource(cross)
+                Glide.with(this).load(cross).into(i1)
                 i1.startAnimation(zoomAnim)
                 cc = 2
             }
@@ -199,6 +206,8 @@ class MainActivity : AppCompatActivity() {
         binding.i8.setImageResource(0)
         binding.i9.setImageResource(0)
         binding.txtReset.visibility = View.GONE
+        gameStart = false
+        binding.btnSelector.visibility = View.VISIBLE
     }
 
 

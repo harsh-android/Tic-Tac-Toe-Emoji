@@ -27,6 +27,7 @@
             android:id="@+id/imgIcon"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
+            android:padding="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:src="@drawable/emo1"/>
 
@@ -35,6 +36,7 @@
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:text="RESET"
+            android:layout_marginTop="@dimen/_5sdp"
             android:gravity="center"
             android:padding="@dimen/_5sdp"
             android:textColor="#388E3C"

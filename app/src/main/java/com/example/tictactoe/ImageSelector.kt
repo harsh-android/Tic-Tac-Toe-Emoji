@@ -68,7 +68,14 @@ class ImageSelector {
             emo45,
             emo46,
             emo47,
-            emo48
+            emo48,
+            win1,
+            win2,
+            win3,
+            win4,
+            win5,
+            win6,
+            win7
         )
 
         fun imageSelectorDialog(context: Context) {
@@ -92,14 +99,27 @@ class ImageSelector {
             var rgPlayer1 = dialog.findViewById<GravityRadioGroup>(R.id.rgPlayer1)
             var rgPlayer2 = dialog.findViewById<GravityRadioGroup>(R.id.rgPlayer2)
             var cardSubmit = dialog.findViewById<CardView>(R.id.cardSubmit)
+            var cardCancel = dialog.findViewById<CardView>(R.id.cardCancel)
+
+            cardCancel.setOnClickListener {
+                dialog.dismiss()
+            }
 
             cardSubmit.setOnClickListener {
 
-                var rbBtn1 = dialog.findViewById<GravityImageRadioButton>(rgPlayer1.checkedRadioButtonId())
-                var rbBtn2 = dialog.findViewById<GravityImageRadioButton>(rgPlayer2.checkedRadioButtonId())
-                MainActivity.round = imgList.get(rbBtn1.text().toInt())
-                MainActivity.cross = imgList.get(rbBtn2.text().toInt())
-                dialog.dismiss()
+                var rbBtn1 =
+                    dialog.findViewById<GravityImageRadioButton>(rgPlayer1.checkedRadioButtonId())
+                var rbBtn2 =
+                    dialog.findViewById<GravityImageRadioButton>(rgPlayer2.checkedRadioButtonId())
+
+                if (rbBtn1.text().toInt() != rbBtn2.text().toInt()) {
+                    MainActivity.round = imgList.get(rbBtn1.text().toInt())
+                    MainActivity.cross = imgList.get(rbBtn2.text().toInt())
+                    dialog.dismiss()
+                } else {
+                    Toast.makeText(context, "Please Select Different Image", Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
 
             rgPlayer1.removeAllViews()
@@ -113,9 +133,9 @@ class ImageSelector {
         private fun setPlayer(
             context: Context,
             rgPlayer2: GravityRadioGroup,
-            list:Array<Int>
+            list: Array<Int>
         ) {
-            for (pos in 0..list.size-1) {
+            for (pos in 0..list.size - 1) {
 
                 val btnShow = GravityImageRadioButton(context)
                 btnShow.setLayoutParams(
